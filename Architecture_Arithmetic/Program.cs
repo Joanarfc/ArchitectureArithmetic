@@ -10,9 +10,9 @@ namespace Architecture_Arithmetic
     {
         static void Main(string[] args)
         {
-            Console.WriteLine($"The area of the Rectangle is: {Rectangle(4, 5)}");
-            Console.WriteLine($"The area of the Rectangle is: {Circle(4)}");
-            Console.WriteLine($"The area of the Rectangle is: {Triangle(10, 9)}");
+            double floorPlan = Circle(375) + Triangle(750, 500) + Rectangle(1500, 2500);
+            Console.WriteLine($"The area of the floor plan is: {floorPlan}");
+
         }
 
         public static double Rectangle(double length, double width)
