@@ -10,8 +10,34 @@ namespace Architecture_Arithmetic
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("********List of monuments********");
+            Console.WriteLine("What monument would you like to work with?");
+            Console.WriteLine("1 - Taj Mahal");
+            Console.WriteLine("2 - Great Mosque");
+            Console.WriteLine("3 - Pantheon\n");
 
-            CalculateTotalCost(Circle(375), Triangle(750, 500), Rectangle(2500, 1500));
+            Console.WriteLine("What monument would you like to work with? (1-3)");
+
+            string monumentChoice = Console.ReadLine().ToUpper();
+
+            switch (monumentChoice)
+            {
+                case "1":
+                    CalculateTotalCostTajMahal(monumentChoice, Triangle(24, 24), Rectangle(90.5, 90.5));
+                    break;
+                case "2":
+                    CalculateTotalCostGreatMosque(monumentChoice, Rectangle(284,264), Triangle(84, 264), Rectangle(180, 106));
+                    break;
+                case "3":
+                    CalculateTotalCost(monumentChoice, Circle(375), Triangle(750, 500), Rectangle(2500, 1500));
+                    break;
+                default:
+                    Console.WriteLine("Not a valid choice");
+                    break;
+            }
+
+
+            //CalculateTotalCost(Circle(375), Triangle(750, 500), Rectangle(2500, 1500));
 
         }
 
@@ -33,14 +59,35 @@ namespace Architecture_Arithmetic
             return area;
         }
 
-        public static void CalculateTotalCost(double circle, double triangle, double rectangle)
+        public static void CalculateTotalCost(string choice, double circle, double triangle, double rectangle)
         {
             double costMaterial = 180;
 
             double floorPlanCost = Math.Round((rectangle + circle + triangle) * costMaterial, 2);
 
-            Console.WriteLine($"The cost of the floor plan is: {floorPlanCost}");
+            Console.WriteLine($"The cost of the monument {choice} is: {floorPlanCost}");
 
         }
+
+        public static void CalculateTotalCostTajMahal(string choice, double triangle, double rectangle)
+        {
+            double costMaterial = 180;
+
+            double floorPlanCost = Math.Round((rectangle - (4*triangle)) * costMaterial, 2);
+
+            Console.WriteLine($"The cost of the monument {choice} is: {floorPlanCost}");
+
+        }
+
+        public static void CalculateTotalCostGreatMosque(string choice, double rectangle1, double triangle, double rectangle2)
+        {
+            double costMaterial = 180;
+
+            double floorPlanCost = Math.Round(((rectangle1 - triangle) + rectangle2) * costMaterial, 2);
+
+            Console.WriteLine($"The cost of the monument {choice} is: {floorPlanCost}");
+
+        }
+
     }
 }
