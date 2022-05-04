@@ -10,13 +10,8 @@ namespace Architecture_Arithmetic
     {
         static void Main(string[] args)
         {
-            double costMaterial = 180;
 
-            double floorPlanArea = Circle(375) + Triangle(750, 500) + Rectangle(1500, 2500);
-            double floorPlanCost = floorPlanArea * costMaterial;
-            Console.WriteLine($"The area of the floor plan is: {floorPlanArea}");
-
-            Console.WriteLine($"The cost of the floor plan is: {floorPlanCost}");
+            CalculateTotalCost(Circle(375), Triangle(750, 500), Rectangle(2500, 1500));
 
         }
 
@@ -36,6 +31,16 @@ namespace Architecture_Arithmetic
         {
             double area = 0.5 * bottom * height;
             return area;
+        }
+
+        public static void CalculateTotalCost(double circle, double triangle, double rectangle)
+        {
+            double costMaterial = 180;
+
+            double floorPlanCost = Math.Round((rectangle + circle + triangle) * costMaterial, 2);
+
+            Console.WriteLine($"The cost of the floor plan is: {floorPlanCost}");
+
         }
     }
 }
