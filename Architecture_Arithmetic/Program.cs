@@ -10,8 +10,13 @@ namespace Architecture_Arithmetic
     {
         static void Main(string[] args)
         {
-            double floorPlan = Circle(375) + Triangle(750, 500) + Rectangle(1500, 2500);
-            Console.WriteLine($"The area of the floor plan is: {floorPlan}");
+            double costMaterial = 180;
+
+            double floorPlanArea = Circle(375) + Triangle(750, 500) + Rectangle(1500, 2500);
+            double floorPlanCost = floorPlanArea * costMaterial;
+            Console.WriteLine($"The area of the floor plan is: {floorPlanArea}");
+
+            Console.WriteLine($"The cost of the floor plan is: {floorPlanCost}");
 
         }
 
